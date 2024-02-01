@@ -9,16 +9,16 @@ use Exception;
 
 class ResumeController extends Controller
 {
+    public function index() 
+    {
+        return view('resumes.index');
+    }
+
     public function store(Request $request) 
     {
-        if($request->hasfile('cv'))
-        {
-            foreach($request->file('cv') as $cv)
-            {
-                $name= base64_encode(Carbon::now()).$cv->getClientOriginalName();
-                $cv->move(public_path('cv/'),$name);
-            }
-        }
+        $cv = $request->file('cv');
+        $name= base64_encode(Carbon::now()).$cv->getClientOriginalName();
+        $cv->move(public_path('cv/'),$name);
 
         try {
             $resume = new Resume();
@@ -31,7 +31,7 @@ class ResumeController extends Controller
             $resume->save();
             return response(200);
         } catch(Exception $e){
-            return response(500)->json(['error'=>$e]);
+            return $e;
         }
     }
 }

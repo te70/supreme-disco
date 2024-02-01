@@ -20,7 +20,13 @@
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{{asset('/css/dashboard.rtl.css')}}">
         <link rel="stylesheet" href="{{asset('/css/dashboard.css')}}">
-        
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- DataTables JS -->
+        <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
 </div>

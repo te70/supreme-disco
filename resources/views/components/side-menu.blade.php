@@ -18,13 +18,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link fs-5" href="#">
+                <a class="nav-link fs-5" href="/resume/index">
                 <span  class="align-text-bottom bi bi-envelope"></span>
                 Resumes
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link fs-5" href="#">
+                <a class="nav-link fs-5" href="/job/index">
                 <span class="align-text-bottom bi bi-basket3"></span>
                 Jobs
                 </a>

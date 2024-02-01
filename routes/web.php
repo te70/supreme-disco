@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\JobController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +20,10 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(ResumeController::class)->group(function () {
         Route::get('/resume/index', 'index');
+    });
+
+    Route::controller(JobController::class)->group(function () {
+        Route::get('/job/index', 'index');
     });
 });
 

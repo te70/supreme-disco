@@ -10,6 +10,7 @@
                             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                                 <h1 class="h2">Jobs</h1>
                                 <div class="btn-group me-2">
+                                    <a class="btn btn-sm btn-outline-secondary" href="/job/create">Create job</a>
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Add location</button>
                                 </div>
                             </div>           
@@ -40,8 +41,8 @@
                                                       <i style="color: black;" class="bi bi-three-dots-vertical"></i>
                                                     </a>
                                                     <ul class="dropdown-menu">
-                                                      <form action="" method="POST">
-                                                        <a class="dropdown-item" href="/job/edit">Edit</a>
+                                                      <form action="{{route('job.delete',['id'=>$job->id])}}" method="POST">
+                                                        <a class="dropdown-item" href="{{route('job.edit',['id'=>$job->id])}}">Edit</a>
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="dropdown-item" href="">Delete</button>

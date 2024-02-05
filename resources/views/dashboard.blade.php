@@ -24,7 +24,7 @@
                                 <div class="col-sm-6">
                                     <div class="card">
                                         <div class="card-body">
-                                        <h5 class="card-title">10</h5>
+                                        <h5 class="card-title">{{count($resumes)}}</h5>
                                         <p class="card-text">Resumes</p>
                                         </div>
                                     </div>
@@ -32,7 +32,7 @@
                                 <div class="col-sm-6">
                                     <div class="card">
                                         <div class="card-body">
-                                        <h5 class="card-title">2</h5>
+                                        <h5 class="card-title">10</h5>
                                         <p class="card-text">Live jobs</p>
                                         </div>
                                     </div>
@@ -42,7 +42,7 @@
                                 <div class="col-sm-6">
                                     <div class="card">
                                         <div class="card-body">
-                                        <h5 class="card-title">20</h5>
+                                        <h5 class="card-title">{{count($jobs)}}</h5>
                                         <p class="card-text">Total jobs</p>
                                         </div>
                                     </div>

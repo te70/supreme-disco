@@ -11,7 +11,8 @@ class ResumeController extends Controller
 {
     public function index() 
     {
-        return view('resumes.index');
+        $resumes = Resume::all();
+        return view('resumes.index', compact('resumes'));
     }
 
     public function store(Request $request) 

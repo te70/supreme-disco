@@ -11,7 +11,7 @@
                                 <h1 class="h2">Jobs</h1>
                                 <div class="btn-group me-2">
                                     <a class="btn btn-sm btn-outline-secondary" href="/job/create">Create job</a>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Add location</button>
+                                    <a class="btn btn-sm btn-outline-secondary" href="/job/location/index">Add location</a>
                                 </div>
                             </div>           
                             <div class="row text-center">

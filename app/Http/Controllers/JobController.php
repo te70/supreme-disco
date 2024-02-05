@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\Location;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -22,13 +23,27 @@ class JobController extends Controller
 
     public function create()
     {
-        return view('jobs.create');
+        $locations = Location::all();
+        return view('jobs.create', compact('locations'));
     }
 
     public function view($id)
     {
         $job = Job::find($id);
         return view('jobs.view', compact('job'));
+    }
+
+    public function locationIndex()
+    {
+        return view('jobs.location');
+    }
+
+    public function locationStore(Request $request)
+    {
+        $location = new Location();
+        $location->location =$request->location;
+        $location->save();
+        return redirect('/job/index');
     }
 
     public function store(Request $request)

@@ -29,8 +29,9 @@
                                       <label for="inputLocation" class="form-label">Job Location</label>
                                       <select id="inputLocation" class="form-select" name="job_location">
                                         <option selected>Choose...</option>
-                                        <option value="Nairobi">Nairobi</option>
-                                        <option value="Kisumu">Kisumu</option>
+                                        @foreach($locations as $location)
+                                        <option value="{{ $location->id }}">{{$location->location}}</option>
+                                        @endforeach
                                       </select>
                                     </div>
                                     <div class="col-md-6">

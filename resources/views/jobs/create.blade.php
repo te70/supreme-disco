@@ -30,7 +30,7 @@
                                       <select id="inputLocation" class="form-select" name="job_location">
                                         <option selected>Choose...</option>
                                         @foreach($locations as $location)
-                                        <option value="{{ $location->id }}">{{$location->location}}</option>
+                                        <option value="{{ $location->location }}">{{$location->location}}</option>
                                         @endforeach
                                       </select>
                                     </div>

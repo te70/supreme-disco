@@ -17,22 +17,35 @@ class ResumeController extends Controller
 
     public function store(Request $request) 
     {
-        $cv = $request->file('cv');
-        $name= base64_encode(Carbon::now()).$cv->getClientOriginalName();
-        $cv->move(public_path('cv/'),$name);
+        
+        // $request->validate([
+        //     'cv' => 'required|mimes:pdf|max:10240',
+        // ]);
 
-        try {
+        $cv = 'cv';
+        // try {
             $resume = new Resume();
-            $resume->first_name = $request->first_name;
-            $resume->last_name = $request->last_name;
-            $resume->email = $request->email;
-            $resume->phone_number = $request->phone_number;
-            $resume->location = $request->location;
-            $resume->cv = $request->$cv;
+            $resume->first_name = $request->input('first_name');
+            $resume->last_name = $request->input('last_name');
+            $resume->email = $request->input('email');
+            $resume->phone_number = $request->input('phone_number');
+            $resume->location = $request->input('location');
+            $resume->cv = $cv;
             $resume->save();
             return response(200);
+        // } catch(Exception $e){
+        //     return $e;
+        // }
+    }
+    
+    public function destroy(Request $request)
+    {
+        try{
+            $deleteAd=Resume::find($request->id);
+            $deleteAd->delete();
+            return redirect('/resume/index');
         } catch(Exception $e){
-            return $e;
+            abort(500);
         }
     }
 }

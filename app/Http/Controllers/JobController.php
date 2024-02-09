@@ -15,6 +15,26 @@ class JobController extends Controller
         return view('jobs.index', compact('jobs'));
     }
 
+    public function display()
+    {
+        try{
+            $jobs = Job::all();
+            return response()->json($jobs);
+        } catch(Exception $e) {
+            abort (500);
+        }
+    }
+
+    public function details($id)
+    {
+        try{
+            $jobs = Job::find($id);
+            return response()->json($jobs);
+        } catch(Exception $e) {
+            abort (500);
+        }
+    }
+
     public function edit($id)
     {
         $job = Job::find($id);
@@ -61,7 +81,7 @@ class JobController extends Controller
             $job->save();
             return redirect('/job/index');
         } catch(Exception $e) {
-            abort(500);
+            return $e;
         }
     }
 

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\JobController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -10,4 +11,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::controller(ResumeController::class)->group(function () {
     Route::post('/resume/store', 'store');
+});
+
+Route::controller(JobController::class)->group(function () {
+    Route::post('/jobs', 'display');
+    Route::post('/jobs/{id}', 'details');
 });

@@ -14,6 +14,6 @@ class Resume extends Model
         'email',
         'phone_number',
         'location',
-        'resume',
+        'cv',
     ];
 }

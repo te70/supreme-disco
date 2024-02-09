@@ -59,6 +59,11 @@
                     </div>
                 </div>
             </body>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                $('#example').DataTable();
+              });
+            </script>
         </div>
     </div>
 </x-app-layout>

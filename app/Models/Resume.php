@@ -15,5 +15,6 @@ class Resume extends Model
         'phone_number',
         'location',
         'cv',
+        'position'
     ];
 }

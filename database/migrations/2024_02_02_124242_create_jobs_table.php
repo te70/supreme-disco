@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('salary');
             $table->string('contact_name');
             $table->string('contact_email');
+            $table->string('expiry_date');
             $table->string('job_requirements');
             $table->string('job_responsibilities');
             $table->timestamps();

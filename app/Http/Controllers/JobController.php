@@ -6,6 +6,7 @@ use App\Models\Job;
 use App\Models\Location;
 use Illuminate\Http\Request;
 use Exception;
+use Carbon\Carbon;
 
 class JobController extends Controller
 {
@@ -18,7 +19,7 @@ class JobController extends Controller
     public function display()
     {
         try{
-            $jobs = Job::all();
+            $jobs = Job::where('expiry_date', '>', Carbon::now())->get();
             return response()->json($jobs);
         } catch(Exception $e) {
             abort (500);
@@ -76,6 +77,7 @@ class JobController extends Controller
             $job->salary = $request->salary;
             $job->contact_name = $request->contact_name;
             $job->contact_email = $request->contact_email;
+            $job->expiry_date = $request->expiry_date;
             $job->job_requirements = $request->job_requirements;
             $job-> job_responsibilities= $request->job_responsibilities;
             $job->save();

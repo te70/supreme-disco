@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
 use App\Models\Resume;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -16,13 +17,19 @@ class ResumeController extends Controller
     }
 
     public function store(Request $request) 
-    {
-        
-        // $request->validate([
-        //     'cv' => 'required|mimes:pdf|max:10240',
-        // ]);
+    {   
+        $jobId = $request->id;
+        if(!$jobId){
+            $job_title = null;
+        } else{
+            $position = Job::find($jobId);
+            $job_title = $position->job_title;
+        }
 
-        $cv = 'cv';
+        $file = $request->file('cv');
+        $fileName = $file->getClientOriginalName();
+        $file->move(public_path('cv'), $fileName);
+
         // try {
             $resume = new Resume();
             $resume->first_name = $request->input('first_name');
@@ -30,7 +37,8 @@ class ResumeController extends Controller
             $resume->email = $request->input('email');
             $resume->phone_number = $request->input('phone_number');
             $resume->location = $request->input('location');
-            $resume->cv = $cv;
+            $resume->position = $job_title;
+            $resume->cv = $fileName;
             $resume->save();
             return response(200);
         // } catch(Exception $e){

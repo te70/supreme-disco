@@ -47,6 +47,10 @@
                                       <input type="email" class="form-control" id="inputEmail" name="contact_email">
                                     </div>
                                     <div class="mb-3">
+                                      <label for="expiryDate" class="form-label">Expiry date</label>
+                                      <input class="form-control" type="date" id="expiryDate" name="expiry_date">
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="inputRequirements" class="form-label">Job requirements</label>
                                         <textarea class="form-control" id="inputRequirements" rows="3" name="job_requirements"></textarea>
                                       </div>

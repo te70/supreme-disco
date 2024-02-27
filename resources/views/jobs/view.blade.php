@@ -20,6 +20,7 @@
                                   <li class="list-group-item">Salary: <span>{{$job->salary}}</span></li>
                                   <li class="list-group-item">Contact name: <span>{{$job->contact_name}}</span></li>
                                   <li class="list-group-item">Contact email: <span>{{$job->contact_email}}</span></li>
+                                  <li class="list-group-item">Expiry: <span>{{$job->expiry_date}}</span></li>
                                 </ul>
                                 <div class="card-body">
                                     <h4>Job requirements:</h4>

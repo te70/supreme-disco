@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('location');
             $table->string('phone_number');
             $table->string('cv');
+            $table->string('position')->nullable();
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Models\Resume;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Support\Facades\Storage;
 
 class ResumeController extends Controller
 {
@@ -26,11 +27,12 @@ class ResumeController extends Controller
             $job_title = $position->job_title;
         }
 
-        $file = $request->file('cv');
-        $fileName = $file->getClientOriginalName();
-        $file->move(public_path('cv'), $fileName);
 
-        // try {
+            $cv = $request->file('cv'); 
+            $name= base64_encode(Carbon::now()).$cv->getClientOriginalName();
+            $cv->move(public_path('images/'),$name);
+        
+        // // try {
             $resume = new Resume();
             $resume->first_name = $request->input('first_name');
             $resume->last_name = $request->input('last_name');
@@ -38,7 +40,7 @@ class ResumeController extends Controller
             $resume->phone_number = $request->input('phone_number');
             $resume->location = $request->input('location');
             $resume->position = $job_title;
-            $resume->cv = $fileName;
+            $resume->cv = $name;
             $resume->save();
             return response(200);
         // } catch(Exception $e){

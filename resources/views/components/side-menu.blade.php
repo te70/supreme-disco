@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link fs-5" href="#">
+                <a class="nav-link fs-5" href="/users">
                 <span class="align-text-bottom bi bi-person"></span>
                 Users
                 </a>

@@ -28,7 +28,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            @foreach($jobs as $key=>$job)
+                                            @foreach($jobs as $key=>$job) 
                                             <td>{{$key+1}}</td>
                                             <td><a href="{{route('job.view', ['id'=>$job->id])}}">{{$job->job_title}}</a></td>
                                             <td>{{$job->job_type}}</td>

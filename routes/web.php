@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +33,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/job/create', 'create');
         Route::get('/job/index', 'index');
     });
+
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/users', 'index');
+        Route::get('/user/create', 'create');
+        Route::post('/user/delete/{id}', 'destroy')->name('user.delete');
+    });
+
 });
 
 require __DIR__.'/auth.php';

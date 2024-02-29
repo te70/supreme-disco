@@ -29,20 +29,19 @@
                                             <td>{{$user->email}}</td>
                                             <td> 
                                                 <div class="dropup">
-
                                                 <a href="#" role="button" data-bs-toggle="dropdown">
                                                   <i style="color: black;" class="bi bi-three-dots-vertical"></i>
                                                 </a>
                                                 <ul class="dropdown-menu">
-                                                  <form action="{{route('user.delete',['id'=>$user->id])}}" method="POST">
+                                                  <form action="{{ route('user.delete', ['id' => $user->id]) }}" method="POST">
                                                     @csrf
-                                                    <a class="dropdown-item" href="{{ route('password.request') }}">Edit</a>
+                                                    <a class="dropdown-item" href="{{ route('user.edit', ['id'=>$user->id])}}">Edit</a>
                                                     @method('DELETE')
                                                     <button type="submit" class="dropdown-item" href="">Delete</button>
                                                 </form> 
                                                 </ul>
                                               </div>
-                                            </td>
+                                            </td> 
                                         </tr>
                                         @endforeach
                                     </tbody>

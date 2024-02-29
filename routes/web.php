@@ -36,8 +36,11 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(UserController::class)->group(function () {
         Route::get('/users', 'index');
-        Route::get('/user/create', 'create');
-        Route::post('/user/delete/{id}', 'destroy')->name('user.delete');
+        Route::get('/user/create', 'create')->name('user.create');
+        Route::post('/user/store', 'store')->name('user.store'); 
+        Route::get('/user/edit/{id}', 'edit')->name('user.edit');
+        Route::post('/user/update/{id}', 'update')->name('user.update');
+        Route::delete('/user/delete/{id}', 'destroy')->name('user.delete');
     });
 
 });

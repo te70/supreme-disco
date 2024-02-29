@@ -28,16 +28,15 @@
                                     <tbody>
                                         <tr>
                                             @foreach($resumes as $key=>$resume)
-                                            <td>{{$resume->first_name}}</td>
-                                            <td>{{$resume->last_name}}</td>
+                                            <td class="text-uppercase">{{$resume->first_name}}</td>
+                                            <td class="text-uppercase">{{$resume->last_name}}</td>
                                             <td>{{$resume->email}}</td>
                                             <td>{{$resume->phone_number}}</td>
                                             <td>{{$resume->location}}</td>
                                             <td>{{$resume->location}}</td>
-                                            <td>{{$resume->cv}}</td>
+                                            <td><a class="badge text-bg-primary" href="{{ asset('images/'.$resume->cv) }}" target="_blank">View CV</a></td>
                                             <td> 
                                                 <div class="dropup">
-
                                                 <a href="#" role="button" data-bs-toggle="dropdown">
                                                   <i style="color: black;" class="bi bi-three-dots-vertical"></i>
                                                 </a>
